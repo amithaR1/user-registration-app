@@ -1,0 +1,27 @@
+@import"../../../shared/styles/var-palette.scss";
+
+
+header {
+    >nav:first-child {
+        @include bg-clr($lightBackground);
+        .tab-block {
+         nav {
+            @extend .cursor-pointer;
+            a {
+                @include text-elements($textClrInfo, 1rem, $fontFamilyPrimary);   
+            }
+            .active {
+                @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary);   
+            }
+         }
+        }
+        .img-block {
+            img {
+                @extend .cursor-pointer;
+            }
+        }
+    }
+}
+.content-section {
+   padding-top: 6rem;
+}

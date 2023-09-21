@@ -1,2 +1,29 @@
-<p>entry-page works!</p>
+<header class="fixed-top">
+    <nav class="navbar border border-dark navbar-expand-sm">
+        <div class="container-fluid pt-1 px-5">
+            <div class="logo-block col-sm-2">
+                Logo
+            </div>
+            <div class="col-sm-7 tab-block d-flex justify-content-center col-sm-7">
+                <nav class="nav nav-pills flex-column flex-sm-row" *ngFor="let tabItem of tabElements"
+                    (click)="updateTabItem(tabItem)">
+                    <a class="flex-sm-fill text-sm-center nav-link px-5 py-3"
+                        [ngClass]="{'active' :tabItem.value === activeTab}">{{tabItem.name}}</a>
+                </nav>
+            </div>
+            <div class="col-sm-3 text-end img-block">
+                <img src="../../../../assets/img/profile.png" alt="profile-img">
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container-fluid content-section">
+    <div *ngIf="activeTab === 1">
+        <app-registration></app-registration>
+    </div>
+    <div *ngIf="activeTab === 2">
+        <app-user-details></app-user-details>
+    </div>
+</div>
+
 <app-footer></app-footer>
