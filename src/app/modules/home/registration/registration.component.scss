@@ -2,31 +2,49 @@
 
 .registration-container {
     .header-layout {
-        @include text-elements($textClrInfo, 1.2rem, $fontFamilyPrimary,  $fontBold);
+        @include text-elements($textClrInfo, 1.2rem, $fontFamilyPrimary, $fontBold);
+
         hr {
             border: 1px solid $btnClrPrimary;
             margin-top: 0;
         }
     }
+
     .form-layout {
-        label {
-            @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary,  $fontNormal); 
+
+        input.ng-invalid.ng-touched,
+        textarea.ng-invalid.ng-touched {
+            border: 1px solid $clrDanger;
         }
+
+        label {
+            @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary, $fontNormal);
+        }
+
+        .err-msg {
+            color: $clrDanger;
+        }
+
         .address-section {
             border: 2px dotted $textClrPrimary;
-            >div:first-child {
-                height: 33vh;
-                overflow: auto;
-                @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary,  $fontNormal); 
-            }
-            button {
-                @extend .cursor-pointer;
-                @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary,  $fontNormal); 
+
+            .form-group {
+                >div:first-child {
+                    height: 35vh;
+                    overflow: auto;
+                    @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary, $fontNormal);
+                }
+
+                button {
+                    @extend .cursor-pointer;
+                    @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary, $fontNormal);
+                }
             }
         }
+
         .action-btn {
             @extend .cursor-pointer;
-            @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary,  $fontNormal); 
+            @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary, $fontNormal);
         }
     }
 }

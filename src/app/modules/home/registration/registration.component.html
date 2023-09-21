@@ -5,44 +5,72 @@
             <hr>
         </div>
         <div class="form-layout col-sm-9">
-            <form class="row">
+            <form class="row" [formGroup]="registrationForm" (submit)="submitForm()">
                 <div class="col-sm-7">
                     <div class="py-1 px-3">
-                        <label for="exampleFormControlInput1" class="form-label">User Name</label>
-                        <input type="email" class="form-control" placeholder="name@example.com">
+                        <label class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="userName" formControlName="userName">
+                        <span *ngIf="
+                          !registrationForm.get('userName').valid &&
+                          registrationForm.get('userName').touched" class="err-msg">
+                            <span *ngIf="registrationForm.get('userName').errors['required']">
+                                Please enter a valid User Name</span>
+                        </span>
                     </div>
                     <div class="py-1 px-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" placeholder="name@example.com">
+                        <label class="form-label">Email address</label>
+                        <input type="text" class="form-control" id="email" formControlName="email">
+                        <span *ngIf="!registrationForm.get('email').valid &&  registrationForm.get('email').touched"
+                            class="err-msg">Please enter a valid email</span>
                     </div>
                 </div>
                 <div class="address-section col-sm-12 mt-2">
-                    <div class="col-sm-12">
-                    <div class="py-2 px-3">Address</div>
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <div class="py-1 px-3">
-                                <label for="exampleFormControlTextarea1">City:</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                            </div>
-                            <div class="py-1 px-3">
-                                <label for="exampleFormControlTextarea1">State:</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                            </div>
-                            <div class="py-1  px-3">
-                                <label for="exampleFormControlTextarea1">Pin code:</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                    <div class="col-sm-12" formArrayName="address">
+                        <div class="form-group"
+                            *ngFor="let addressControl of registrationForm.controls.address.controls;let addressIndex = index">
+                            <div [formGroupName]="addressIndex">
+                                <div class="py-2 px-3">Address {{addressIndex + 1}}</div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <div class="py-1 px-3">
+                                            <label class="form-label">City:</label>
+                                            <textarea class="form-control" id="city" formControlName="city"
+                                                rows="1"></textarea>
+                                            <span
+                                                *ngIf="!addressControl.controls.city.valid &&  addressControl.controls.city.touched"
+                                                class="err-msg">Please enter a city</span>
+                                        </div>
+                                        <div class="py-1 px-3">
+                                            <label class="form-label">State:</label>
+                                            <input type="text" class="form-control" id="state" formControlName="state">
+                                            <span
+                                                *ngIf="!addressControl.controls.state.valid &&  addressControl.controls.state.touched"
+                                                class="err-msg">Please enter a valid State</span>
+                                        </div>
+                                        <div class="py-1  px-3">
+                                            <label class="form-label">Pin code:</label>
+                                            <input type="text" class="form-control" id="pincode"
+                                                formControlName="pincode">
+                                            <span
+                                                *ngIf="!addressControl.controls.pincode.valid &&  addressControl.controls.pincode.touched"
+                                                class="err-msg">Please enter a valid pincode</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                     </div>
-                </div>
                     <div class="d-grid gap-2 d-md-flex my-2 mx-3 justify-content-md-end">
-                        <button class="btn btn-primary p-2" type="button">Add Address</button>
-                        <button class="btn btn-primary p-2" type="button">Delete Address</button>
+                        <button class="btn btn-primary p-2" type="button" (click)="addNewAddressRow()">Add
+                            Address</button>
+                        <button class="btn btn-primary p-2" type="button" (click)="deleteAddressRow()">Delete
+                            Address</button>
                     </div>
                 </div>
                 <div class="action-btn d-grid  mt-3 justify-content-sm-end col-sm-11">
-                    <button type="button" class="btn btn-primary px-5 py-2" disabled>Register User</button>
+                    <button type="submit" class="btn btn-primary px-5 py-2"
+                        [disabled]="!registrationForm.valid">Register User</button>
                 </div>
             </form>
         </div>
