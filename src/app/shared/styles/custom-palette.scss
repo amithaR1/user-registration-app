@@ -8,6 +8,9 @@ $textClrSecondary: #FFFFFF;
 $shadowClr: #00000033;
 $fontFamilyPrimary:Arial, Helvetica, sans-serif;
 $fontFamilySecondary:Times New Roman, Times, serif;
+$fontBold: bold;
+ $fontNormal: normal;
+ $fontLight: lighter;
 
 /* mixin for  background color*/
 
@@ -16,13 +19,16 @@ $fontFamilySecondary:Times New Roman, Times, serif;
 }
 
 /* mixin for text color */
-@mixin text-elements($txt-color, $fontsize, $fontFamily) {
+@mixin text-elements($txt-color, $fontsize, $fontFamily, $fontWeight) {
   color: $txt-color;
   @if $fontsize {
    font-size: $fontsize;
   }
   @if $fontFamily {
     font-family: $fontFamily;
+  }
+  @if $fontWeight {
+    font-weight: $fontWeight;
   }
 }
 

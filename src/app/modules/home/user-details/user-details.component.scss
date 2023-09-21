@@ -1,0 +1,27 @@
+@import"../../../shared/styles/var-palette.scss";
+
+.user-details-container {
+    .header-layout {
+        @include text-elements($textClrPrimary, 1.2rem, $fontFamilyPrimary, $fontBold);
+    }
+
+    .table-layout {
+        >div:first-child {
+            border: 2px dotted $textClrPrimary;
+            border-bottom: none;
+            @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary, $fontBold);
+        }
+        table {
+            border: 2px dotted $textClrPrimary;
+            th,
+            td {
+                @extend .text-center;
+            }
+            td:last-child{
+                span {
+                    @extend .cursor-pointer;
+                }
+            }
+        }
+    }
+}

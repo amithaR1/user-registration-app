@@ -2,32 +2,31 @@
 
 .registration-container {
     .header-layout {
-        @include text-elements($textClrInfo, 1.2rem, $fontFamilyPrimary);
-
+        @include text-elements($textClrInfo, 1.2rem, $fontFamilyPrimary,  $fontBold);
         hr {
             border: 1px solid $btnClrPrimary;
             margin-top: 0;
         }
     }
-
     .form-layout {
         label {
-            @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary); 
+            @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary,  $fontNormal); 
         }
         .address-section {
             border: 2px dotted $textClrPrimary;
             >div:first-child {
                 height: 33vh;
                 overflow: auto;
+                @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary,  $fontNormal); 
             }
             button {
                 @extend .cursor-pointer;
-                @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary); 
+                @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary,  $fontNormal); 
             }
         }
         .action-btn {
             @extend .cursor-pointer;
-            @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary); 
+            @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary,  $fontNormal); 
         }
     }
 }

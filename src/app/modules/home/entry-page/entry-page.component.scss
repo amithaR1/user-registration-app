@@ -8,10 +8,10 @@ header {
          nav {
             @extend .cursor-pointer;
             a {
-                @include text-elements($textClrInfo, 1rem, $fontFamilyPrimary);   
+                @include text-elements($textClrInfo, 1rem, $fontFamilyPrimary, $fontNormal);   
             }
             .active {
-                @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary);   
+                @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary, $fontNormal);   
             }
          }
         }

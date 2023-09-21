@@ -4,6 +4,6 @@ footer {
     @include bg-clr($bgSecondary);
   
     div {
-        @include text-elements($textClrPrimary, 1rem, $fontFamilySecondary); 
+        @include text-elements($textClrPrimary, 1rem, $fontFamilySecondary, $fontNormal); 
     }
 }

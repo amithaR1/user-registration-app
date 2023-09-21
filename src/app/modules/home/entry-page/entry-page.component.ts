@@ -16,7 +16,7 @@ export class EntryPageComponent {
       name: 'User Details',
       value: 2
     }]
-  public activeTab = 1;
+  public activeTab = 2;
   constructor() {}
   ngOnInit(): void {
   }

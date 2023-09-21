@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit{
   ngOnInit():void {
     this.getCurrentMonthYear();
   }
-  // to display cuurent month and year value
+  // to get cuurent month and year value
   getCurrentMonthYear(): void {
     const monthNames = ['January','Febraury','March','April','May','June','July','August','September','October','November','December'];
     this.currentMonth = monthNames[(new Date()).getMonth()];
