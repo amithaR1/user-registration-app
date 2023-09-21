@@ -1,10 +1,13 @@
 $lightBackground: #FCFCFF;
+$bgSecondary: #F0F0F0;
 $btnClrPrimary: #1E90FF;
 $clrDanger:#FF0000;
 $textClrPrimary: #000000;
 $textClrInfo:#696969;
 $textClrSecondary: #FFFFFF;
 $shadowClr: #00000033;
+$fontFamilyPrimary:Arial, Helvetica, sans-serif;
+$fontFamilySecondary:Times New Roman, Times, serif;
 
 /* mixin for  background color*/
 
@@ -13,13 +16,13 @@ $shadowClr: #00000033;
 }
 
 /* mixin for text color */
-@mixin text-elements($txt-color, $fontsize, $fontstyle) {
+@mixin text-elements($txt-color, $fontsize, $fontFamily) {
   color: $txt-color;
   @if $fontsize {
    font-size: $fontsize;
   }
-  @if $fontstyle {
-    font-style: $fontstyle;
+  @if $fontFamily {
+    font-family: $fontFamily;
   }
 }
 

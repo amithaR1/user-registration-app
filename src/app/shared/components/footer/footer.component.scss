@@ -1,0 +1,9 @@
+@import "../../styles/var-palette.scss";
+
+footer {
+    @include bg-clr($bgSecondary);
+  
+    div {
+        @include text-elements($textClrPrimary, 1rem, $fontFamilySecondary); 
+    }
+}

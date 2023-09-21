@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { EntryPageComponent } from './entry-page/entry-page.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SharedModule
   ]
 })
 export class HomeModule { }
