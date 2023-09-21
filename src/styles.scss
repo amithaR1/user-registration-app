@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import './app/shared/styles/custom-palette';
+@import './app/shared/styles/var-palette';
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0 !important;
+  @include bg-clr($lightBackground);
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+
+  [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+

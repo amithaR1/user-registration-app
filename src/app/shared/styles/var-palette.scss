@@ -1,0 +1,20 @@
+@import './custom-palette';
+
+// text-alignments
+.text-center {
+  text-align: center;
+}
+
+button {
+  border: none;
+  outline: none;
+  @extend .cursor-pointer;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed !important;
+}
