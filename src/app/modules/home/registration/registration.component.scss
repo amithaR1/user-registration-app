@@ -1,0 +1,33 @@
+@import"../../../shared/styles/var-palette.scss";
+
+.registration-container {
+    .header-layout {
+        @include text-elements($textClrInfo, 1.2rem, $fontFamilyPrimary);
+
+        hr {
+            border: 1px solid $btnClrPrimary;
+            margin-top: 0;
+        }
+    }
+
+    .form-layout {
+        label {
+            @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary); 
+        }
+        .address-section {
+            border: 2px dotted $textClrPrimary;
+            >div:first-child {
+                height: 33vh;
+                overflow: auto;
+            }
+            button {
+                @extend .cursor-pointer;
+                @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary); 
+            }
+        }
+        .action-btn {
+            @extend .cursor-pointer;
+            @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary); 
+        }
+    }
+}

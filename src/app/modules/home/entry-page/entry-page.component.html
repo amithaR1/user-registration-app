@@ -4,9 +4,9 @@
             <div class="logo-block col-sm-2">
                 Logo
             </div>
-            <div class="col-sm-7 tab-block d-flex justify-content-center col-sm-7">
+            <div class="col-sm-7 tab-block d-flex col-sm-7">
                 <nav class="nav nav-pills flex-column flex-sm-row" *ngFor="let tabItem of tabElements"
-                    (click)="updateTabItem(tabItem)">
+                    (click)="updateTabItem(tabItem.value)">
                     <a class="flex-sm-fill text-sm-center nav-link px-5 py-3"
                         [ngClass]="{'active' :tabItem.value === activeTab}">{{tabItem.name}}</a>
                 </nav>

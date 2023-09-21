@@ -22,8 +22,8 @@ export class EntryPageComponent {
   }
 
   //update selected tab as  active 
-  updateTabItem(item:any) : void {
-    this.activeTab = item.value;
+  updateTabItem(item:number) : void {
+    this.activeTab = item;
   } 
 }
 
