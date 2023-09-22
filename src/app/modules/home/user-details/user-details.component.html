@@ -16,137 +16,28 @@
                         <th class="col-sm-1">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-sm-3">XYXCC</td>
+                <tbody *ngIf="userDetails && userDetails.length>0">
+                    <tr *ngFor="let userItem of userDetails;let tableIndex = index">
+                        <td class="col-sm-3">{{userItem.userName}}</td>
                         <td class="col-sm-3">
-                            <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
+                            <a >{{userItem.email}}</a>
                         </td>
-                        <td class="col-sm-5">
-                            <div class="address-body d-flex flex-column">
-                                <div>City: 'hello'</div>
-                                <div>State: 'bangalore' </div>
-                                <div> Pin: 560068</div>
+                        <td  class="col-sm-5">
+                            <div class="address-body d-flex pb-2 flex-column" *ngFor="let addressItem of userItem.address">
+                                <div>City: {{addressItem.city}}</div>
+                                <div>State: {{addressItem.state}} </div>
+                                <div>Pincode: {{addressItem.pincode}}</div>
                             </div>
                         </td>
                         <td class="col-sm-1">
-                            <span>&#10060;</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">XYXCC</td>
-                        <td class="col-sm-3">
-                            <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
-                        </td>
-                        <td class="col-sm-5">
-                            <div class="address-body d-flex flex-column">
-                                <div>City: 'hello'</div>
-                                <div>State: 'bangalore' </div>
-                                <div> Pin: 560068</div>
-                            </div>
-                        </td>
-                        <td class="col-sm-1">
-                            <span>&#10060;</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">XYXCC</td>
-                        <td class="col-sm-3">
-                            <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
-                        </td>
-                        <td class="col-sm-5">
-                            <div class="address-body d-flex flex-column">
-                                <div>City: 'hello'</div>
-                                <div>State: 'bangalore' </div>
-                                <div> Pin: 560068</div>
-                            </div>
-                        </td>
-                        <td class="col-sm-1">
-                            <span>&#10060;</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">XYXCC</td>
-                        <td class="col-sm-3">
-                            <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
-                        </td>
-                        <td class="col-sm-5">
-                            <div class="address-body d-flex flex-column">
-                                <div>City: 'hello'</div>
-                                <div>State: 'bangalore' </div>
-                                <div> Pin: 560068</div>
-                            </div>
-                        </td>
-                        <td class="col-sm-1">
-                            <span>&#10060;</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">XYXCC</td>
-                        <td class="col-sm-3">
-                            <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
-                        </td>
-                        <td class="col-sm-5">
-                            <div class="address-body d-flex flex-column">
-                                <div>City: 'hello'</div>
-                                <div>State: 'bangalore' </div>
-                                <div> Pin: 560068</div>
-                            </div>
-                        </td>
-                        <td class="col-sm-1">
-                            <span>&#10060;</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">XYXCC</td>
-                        <td class="col-sm-3">
-                            <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
-                        </td>
-                        <td class="col-sm-5">
-                            <div class="address-body d-flex flex-column">
-                                <div>City: 'hello'</div>
-                                <div>State: 'bangalore' </div>
-                                <div> Pin: 560068</div>
-                            </div>
-                        </td>
-                        <td class="col-sm-1">
-                            <span>&#10060;</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">XYXCC</td>
-                        <td class="col-sm-3">
-                            <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
-                        </td>
-                        <td class="col-sm-5">
-                            <div class="address-body d-flex flex-column">
-                                <div>City: 'hello'</div>
-                                <div>State: 'bangalore' </div>
-                                <div> Pin: 560068</div>
-                            </div>
-                        </td>
-                        <td class="col-sm-1">
-                            <span>&#10060;</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-sm-3">XYXCC</td>
-                        <td class="col-sm-3">
-                            <a href="https://www.w3schools.com/">Visit W3Schools.com!</a>
-                        </td>
-                        <td class="col-sm-5">
-                            <div class="address-body d-flex flex-column">
-                                <div>City: 'hello'</div>
-                                <div>State: 'bangalore' </div>
-                                <div> Pin: 560068</div>
-                            </div>
-                        </td>
-                        <td class="col-sm-1">
-                            <span>&#10060;</span>
+                            <span (click)="deleteSelectedUserDetails(tableIndex)">&#10060;</span>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <div *ngIf="!userDetails.length" class="col-sm-12">
+                <div class="d-flex justify-content-center"> No User Details Found</div>
+              </div>
         </div>
     </div>
 </div>

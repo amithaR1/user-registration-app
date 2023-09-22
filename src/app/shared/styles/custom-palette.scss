@@ -31,7 +31,10 @@ $fontBold: bold;
     font-weight: $fontWeight;
   }
 }
-
+/* mixin for border line */
+@mixin border-line($size, $weight, $clr) {
+  border: $size $weight $clr;
+}
 /* mixin for border radius */
 
 @mixin border-radius($top, $right, $bottom, $left) {
@@ -47,13 +50,5 @@ $fontBold: bold;
 }
 
 
-/* box-shadow generator
-    $clr- in RGBA format
- */
 
- @mixin box-shadows($hset, $vset, $blur, $spread, $clr) {
-  -webkit-box-shadow: $hset $vset $blur $spread $clr;
-  -moz-box-shadow: $hset $vset $blur $spread $clr;
-  box-shadow: $hset $vset $blur $spread $clr;
-}
 

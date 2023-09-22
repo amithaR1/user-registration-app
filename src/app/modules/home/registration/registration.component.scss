@@ -5,7 +5,7 @@
         @include text-elements($textClrInfo, 1.2rem, $fontFamilyPrimary, $fontBold);
 
         hr {
-            border: 1px solid $btnClrPrimary;
+            @include border-line(1px, solid, $btnClrPrimary);
             margin-top: 0;
         }
     }
@@ -14,7 +14,7 @@
 
         input.ng-invalid.ng-touched,
         textarea.ng-invalid.ng-touched {
-            border: 1px solid $clrDanger;
+            @include border-line(1px, solid, $clrDanger);
         }
 
         label {
@@ -26,15 +26,15 @@
         }
 
         .address-section {
-            border: 2px dotted $textClrPrimary;
+            @include border-line(2px, dotted, $textClrPrimary);
+
+            >div:first-child {
+                // max-height: 35vh;
+                // overflow: scroll;
+                @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary, $fontNormal);
+            }
 
             .form-group {
-                >div:first-child {
-                    height: 35vh;
-                    overflow: auto;
-                    @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary, $fontNormal);
-                }
-
                 button {
                     @extend .cursor-pointer;
                     @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary, $fontNormal);

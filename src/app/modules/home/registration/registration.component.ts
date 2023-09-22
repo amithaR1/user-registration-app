@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserRegistrationForm } from 'src/app/shared/model/user.model';
+import { SharedService } from 'src/app/shared/service/shared.service';
+
 
 @Component({
   selector: 'app-registration',
@@ -8,7 +12,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
   public registrationForm: FormGroup | any;
-  constructor(private formBuilder: FormBuilder) { }
+  public userDetails: UserRegistrationForm[] = [];
+  constructor(private formBuilder: FormBuilder, private sharedService: SharedService, private router: Router) { }
 
   ngOnInit() {
     this.registrationForm = this.formBuilder.group({
@@ -16,6 +21,7 @@ export class RegistrationComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       address: this.formBuilder.array([])
     });
+    this.getSubmittedUserDetails();
     this.setInitialAdrressVal();
   }
   //get address data list
@@ -23,8 +29,17 @@ export class RegistrationComponent implements OnInit {
     return this.registrationForm.get("address") as FormArray;
   }
 
+  // fetch submitted user details array data
+  getSubmittedUserDetails(): void {
+    const data = this.sharedService.getUserData();
+    if (data && data.length > 0) {
+      data.forEach((ele: any) =>
+        this.userDetails.push(new UserRegistrationForm(ele)))
+    }
+  }
   //set default address  
   setInitialAdrressVal(): void {
+    this.addressList.controls = [];
     this.addressList.push(this.createAddress('Bangalore', 'Karnataka', 123456))
   }
   //push new address data into address form array
@@ -49,9 +64,13 @@ export class RegistrationComponent implements OnInit {
       alert("One set of Address should be mandatory");
     }
   }
-
+  /*push new user data to user deatils array 
+  reset form and set initial adresss value
+  */
   submitForm(): void {
-    console.log(this.registrationForm.value);
+    this.userDetails.push(new UserRegistrationForm(this.registrationForm.value))
+    this.sharedService.nextSetUserData(this.userDetails);
+    this.registrationForm.reset();
+    this.setInitialAdrressVal();
   }
-
 }

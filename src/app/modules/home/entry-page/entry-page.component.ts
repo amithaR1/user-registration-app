@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {  tabMetaData } from 'src/app/shared/model/user.model';
+
 
 
 @Component({
@@ -6,20 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './entry-page.component.html',
   styleUrls: ['./entry-page.component.scss']
 })
-export class EntryPageComponent {
-  public tabElements = [
-    {
-      name: 'Registration',
-      value: 1
-    },
-    {
-      name: 'User Details',
-      value: 2
-    }]
+export class EntryPageComponent  {
+  public tabElements = tabMetaData;
   public activeTab = 1;
   constructor() {}
-  ngOnInit(): void {
-  }
 
   //update selected tab as  active 
   updateTabItem(item:number) : void {

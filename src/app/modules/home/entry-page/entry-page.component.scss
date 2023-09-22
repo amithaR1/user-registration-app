@@ -4,24 +4,33 @@
 header {
     >nav:first-child {
         @include bg-clr($lightBackground);
-        .tab-block {
-         nav {
-            @extend .cursor-pointer;
-            a {
-                @include text-elements($textClrInfo, 1rem, $fontFamilyPrimary, $fontNormal);   
-            }
-            .active {
-                @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary, $fontNormal);   
-            }
-         }
-        }
-        .img-block {
+
+        .logo-block {
             img {
-                @extend .cursor-pointer;
+                width: 25%;
             }
+        }
+
+        .tab-block {
+            nav {
+                @extend .cursor-pointer;
+
+                a {
+                    @include text-elements($textClrInfo, 1rem, $fontFamilyPrimary, $fontNormal);
+                }
+
+                .active {
+                    @include text-elements($textClrSecondary, 1rem, $fontFamilyPrimary, $fontNormal);
+                }
+            }
+        }
+
+        img {
+            @extend .cursor-pointer;
         }
     }
 }
+
 .content-section {
-   padding: 6rem 0;
+    padding: 6rem 0;
 }

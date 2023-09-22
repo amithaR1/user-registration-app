@@ -7,12 +7,12 @@
 
     .table-layout {
         >div:first-child {
-            border: 2px dotted $textClrPrimary;
+            @include border-line(2px, dotted, $textClrPrimary);
             border-bottom: none;
             @include text-elements($textClrPrimary, 1rem, $fontFamilyPrimary, $fontBold);
         }
         table {
-            border: 2px dotted $textClrPrimary;
+            @include border-line(2px, dotted, $textClrPrimary);
             th,
             td {
                 @extend .text-center;
